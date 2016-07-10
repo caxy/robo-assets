@@ -23,15 +23,13 @@ class Sassc extends CssPreprocessor implements CommandInterface
 
     protected function sassc($file)
     {
-        $this->printTaskInfo('Sassc: {file} {arguments}', ['file' => $file, 'arguments' => $this->arguments]);
+        $this->printTaskInfo('Sassc: {file}{arguments}', ['file' => $file, 'arguments' => $this->arguments]);
 
         // For stdin compiles:
         // $this->option('stdin');
         // $this->printed(false);
         // $scssCode = file_get_contents($file);
         // $result = $this->executeCommandStdin($this->getCommand(), $scssCode);
-
-
 
         if (isset($this->compilerOptions['importDirs'])) {
             $this->optionList('load-path', $this->compilerOptions['importDirs']);
@@ -41,12 +39,10 @@ class Sassc extends CssPreprocessor implements CommandInterface
             $this->option('style', $this->compilerOptions['formatter']);
         }
 
-        $output = $this->files[$file];
-        $this->arg($file);
-        $this->arg($output);
+        $this->args($file, $this->files[$file]);
         $result = $this->executeCommand($this->getCommand());
 
-        return file_get_contents($output);
+        return file_get_contents($this->files[$file]);
     }
 
     protected function executeCommandStdin($command, $input = null)
