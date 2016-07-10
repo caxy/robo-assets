@@ -1,0 +1,24 @@
+{
+    "name": "bangpound/robo-assets",
+    "description": "Robo Assets tasks",
+    "require": {
+        "consolidation/robo": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Doherty",
+            "email": "bjd@bangpound.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bangpound\\Robo\\Task\\Assets\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
