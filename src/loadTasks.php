@@ -6,18 +6,6 @@ use Robo\Container\SimpleServiceProvider;
 
 trait loadTasks
 {
-    /**
-   * Return services.
-   */
-  public static function getAssetsServices()
-  {
-      return new SimpleServiceProvider(
-      [
-        'taskSassc' => Sassc::class,
-      ]
-    );
-  }
-
   /**
    * @param $input
    *
@@ -25,6 +13,6 @@ trait loadTasks
    */
   protected function taskSassc($input)
   {
-      return $this->task(__FUNCTION__, $input);
+      return $this->task(Sassc::class, $input);
   }
 }
