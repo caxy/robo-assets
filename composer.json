@@ -2,7 +2,7 @@
     "name": "bangpound/robo-assets",
     "description": "Robo Assets tasks",
     "require": {
-        "consolidation/robo": "^1.0",
+        "consolidation/robo": "^1.3.2",
         "kriswallsmith/assetic": "^1.3"
     },
     "license": "MIT",
